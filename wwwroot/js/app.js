@@ -58,7 +58,7 @@ if (addModal) {
     const updateDesks = () => {
         const date = dateInput.value;
         if (!date) return;
-        fetch('/?handler=Occupied&date=' + date)
+        fetch('?handler=Occupied&date=' + date)
             .then(r => r.json())
             .then(occupied => {
                 for (let i = 1; i <= 16; i++) {
