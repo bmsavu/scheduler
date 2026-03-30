@@ -24,5 +24,8 @@ _old/
 ## Old bootstrap folder (moved to wwwroot)
 /bootstrap/
 
+## Deploy script (contains credentials)
+deploy.ps1
+
 ## Publish output
 publish/
