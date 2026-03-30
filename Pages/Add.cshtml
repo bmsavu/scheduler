@@ -1,0 +1,59 @@
+@page
+@model Scheduler.Pages.AddModel
+@{
+    ViewData["Title"] = "Adaugă o planificare";
+}
+
+<form method="post">
+    <div class="row info">
+        <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6">
+            <img width="100px" class="img-responsive" src="https://see.asseco.com/files/private/assets/images/asseco_southeasterneurope_logo.svg" />
+        </div>
+        <div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-6 info-txt">
+            <b>Tu ești:</b> <span>@Model.FullName <br />(@Model.UserName)</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Planificare</h1>
+
+            <select asp-for="Rol">
+                <option>Rezervare</option>
+            </select><br />
+
+            <label>data</label>:&nbsp;
+            <input type="date" asp-for="Data" class="form-control" style="display:inline-block; width:200px;" />
+
+            <div class="form-group form-ora">
+                <label>ora</label>:&nbsp;
+                <input type="number" asp-for="Hour" class="form-control" style="width:50px" min="0" max="23" />
+                :
+                <input type="number" asp-for="Minute" class="form-control" style="width:50px" min="0" max="59" />
+                &nbsp;&nbsp;&nbsp;
+                <label>se repetă de</label>:&nbsp;
+                <input type="number" asp-for="Repeat" class="form-control" style="width:50px" min="1" max="5" />
+                <label>ori</label>
+            </div>
+
+            <div class="form-group">
+                <label>loc</label>:&nbsp;
+                <select asp-for="Destinatie">
+                    @for (int i = 1; i <= 16; i++)
+                    {
+                        <option value="@($"ET1L{i:D2}")">@($"ET1L{i:D2}")</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group" style="color: #FF0000">
+                <span class="label label-warning">!</span>ATENȚIE: Se pot introduce maxim 5 repetari = rezervari in zile consecutive (orice numar mai mare de 5 este plafonat).<br />
+                <span class="label label-warning">!</span>Repetările se vor adăuga în zile calendaristice consecutive<br />
+                <span class="label label-warning">!</span>Data/Ora venirii este estimativă și nu poate fi în trecut (sistemul va pune automat data/ora curentă dacă nu se respectă regula)<br />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Adaugă</button>
+        </div>
+    </div>
+</form>
+<br />
+<a href="javascript:history.back()" class="btn btn-primary">&lt;&lt;Inapoi</a>

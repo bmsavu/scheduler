@@ -1,0 +1,77 @@
+html,
+body,
+.container-fluid {
+height: 100%;
+}
+
+.content {
+	background-color: #ADD8E6;
+}
+
+h1 {
+	font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.txt-identitate {
+margin-left: 30px;
+ font-size: 20px;
+ color: red;
+ font-weight: bold;
+}
+
+.table {
+	background-color: #fff;
+}
+
+.table>tbody>tr>td.btn-delete {
+	padding: 4px;
+}
+
+.btn-delete .btn {
+	padding: 4px 10px;
+}
+
+.info {
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding-top: 15px;
+    padding-bottom: 15px;
+	background-color: #FFF;
+    border-bottom: 1px solid #F1F1F1;
+	-webkit-box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
+    -moz-box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
+    box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
+}
+
+.info-txt span {
+	color: #ADD8E6;
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+
+.info-txt {
+	margin-top: 10px;
+}
+
+.form-ora .form-control {
+	margin-top: 20px;
+	display: inline-block;
+}
+
+.info-label {
+	font-size: 12px;
+    font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.info-label {
+	margin-top:30px;
+}
+
+.info-label  .label {
+	margin-right: 5px;
+}
+
