@@ -4,5 +4,17 @@
     ViewData["Title"] = "Eroare";
 }
 
-<h1>Eroare</h1>
-<p>A apărut o eroare la procesarea cererii.</p>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-4 text-center">
+        <div class="card">
+            <div class="card-body py-5">
+                <i class="bi bi-exclamation-triangle text-danger" style="font-size:3.5rem;"></i>
+                <h4 class="mt-3">Eroare</h4>
+                <p class="text-body-secondary">A aparut o eroare la procesarea cererii.</p>
+                <a asp-page="/Index" class="btn btn-primary mt-2">
+                    <i class="bi bi-arrow-left"></i> Inapoi la rezervari
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

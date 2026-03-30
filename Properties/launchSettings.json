@@ -8,5 +8,9 @@
       },
       "applicationUrl": "https://localhost:57152;http://localhost:57153"
     }
+  },
+  "iisSettings": {
+    "windowsAuthentication": true,
+    "anonymousAuthentication": false
   }
 }

@@ -2,79 +2,316 @@
 @model Scheduler.Pages.IndexModel
 @{
     ViewData["Title"] = "Rezervare loc etaj 1 - BK RO Team";
+    var roculture = new System.Globalization.CultureInfo("ro-RO");
 }
 
-@section Head {
-    <meta http-equiv="Refresh" content="60" />
-}
+<div class="row g-4">
+    <!-- Left column: Floor plan + rules -->
+    <div class="col-lg-4 order-lg-2">
+        <div class="card mb-3 floor-plan">
+            <div class="card-body p-2">
+                @{
+                    string DeskFill(string code) => Model.OccupiedToday.Contains(code) ? "#f8d7da" : "#d1e7dd";
+                    string DeskStroke(string code) => Model.OccupiedToday.Contains(code) ? "#dc3545" : "#198754";
+                }
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 390" class="img-fluid" font-family="Segoe UI, Calibri, Arial, sans-serif">
+                  <defs>
+                    <style>
+                      .cell { stroke: #888; stroke-width: 0.75; }
+                      .room-label { font-size: 15px; font-weight: 600; fill: #444; text-anchor: middle; dominant-baseline: central; }
+                      .desk-label { font-size: 11px; font-weight: 600; fill: #333; text-anchor: middle; dominant-baseline: central; }
+                      .name-label { font-size: 9.5px; fill: #444; text-anchor: middle; dominant-baseline: central; }
+                      .desk-rect { stroke-width: 1.5; cursor: pointer; transition: opacity .2s; }
+                      .desk-rect:hover { opacity: 0.75; }
+                    </style>
+                  </defs>
 
-<form method="post">
-    <div class="row info">
-        <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6">
-            <img width="100px" class="img-responsive" src="https://see.asseco.com/files/private/assets/images/asseco_southeasterneurope_logo.svg" />
+                  <!-- BACKGROUND -->
+                  <rect x="0" y="0" width="660" height="350" fill="#fff"/>
+
+                  <!-- TERASA TOP -->
+                  <rect x="0" y="0" width="536" height="48" fill="#FCDEC0" class="cell"/>
+                  <text x="268" y="24" class="room-label">Terasa</text>
+
+                  <!-- HR -->
+                  <rect x="536" y="0" width="124" height="120" fill="#F4C5A0" class="cell"/>
+                  <text x="598" y="60" class="room-label">HR</text>
+
+                  <!-- PMO -->
+                  <rect x="536" y="120" width="124" height="72" fill="#F4C5A0" class="cell"/>
+                  <text x="598" y="156" class="room-label">PMO</text>
+
+                  <!-- TERASA BLUE -->
+                  <rect x="536" y="192" width="124" height="158" fill="#B4C7E7" class="cell"/>
+                  <text x="598" y="271" class="room-label">Terasa</text>
+
+                  <!-- DESKS ROW 1 -->
+                  <rect x="0"   y="48" width="92" height="36" fill="@DeskFill("ET1L01")" stroke="@DeskStroke("ET1L01")" class="desk-rect"/>
+                  <rect x="0"   y="84" width="92" height="36" fill="@DeskFill("ET1L02")" stroke="@DeskStroke("ET1L02")" class="desk-rect"/>
+                  <text x="46"  y="66" class="desk-label">ET1L01</text>
+                  <text x="46"  y="102" class="desk-label">ET1L02</text>
+
+                  <rect x="92"  y="48" width="92" height="36" fill="@DeskFill("ET1L03")" stroke="@DeskStroke("ET1L03")" class="desk-rect"/>
+                  <rect x="92"  y="84" width="92" height="36" fill="@DeskFill("ET1L04")" stroke="@DeskStroke("ET1L04")" class="desk-rect"/>
+                  <text x="138" y="66" class="desk-label">ET1L03</text>
+                  <text x="138" y="102" class="desk-label">ET1L04</text>
+
+                  <rect x="184" y="48" width="84" height="36" fill="@DeskFill("ET1L05")" stroke="@DeskStroke("ET1L05")" class="desk-rect"/>
+                  <rect x="184" y="84" width="84" height="36" fill="@DeskFill("ET1L06")" stroke="@DeskStroke("ET1L06")" class="desk-rect"/>
+                  <text x="226" y="66" class="desk-label">ET1L05</text>
+                  <text x="226" y="102" class="desk-label">ET1L06</text>
+
+                  <rect x="268" y="48" width="92" height="36" fill="@DeskFill("ET1L07")" stroke="@DeskStroke("ET1L07")" class="desk-rect"/>
+                  <rect x="268" y="84" width="92" height="36" fill="@DeskFill("ET1L08")" stroke="@DeskStroke("ET1L08")" class="desk-rect"/>
+                  <text x="314" y="66" class="desk-label">ET1L07</text>
+                  <text x="314" y="102" class="desk-label">ET1L08</text>
+
+                  <rect x="360" y="48" width="92" height="36" fill="@DeskFill("ET1L09")" stroke="@DeskStroke("ET1L09")" class="desk-rect"/>
+                  <rect x="360" y="84" width="92" height="36" fill="@DeskFill("ET1L10")" stroke="@DeskStroke("ET1L10")" class="desk-rect"/>
+                  <text x="406" y="66" class="desk-label">ET1L09</text>
+                  <text x="406" y="102" class="desk-label">ET1L10</text>
+
+                  <rect x="452" y="48" width="84" height="36" fill="@DeskFill("ET1L11")" stroke="@DeskStroke("ET1L11")" class="desk-rect"/>
+                  <rect x="452" y="84" width="84" height="36" fill="@DeskFill("ET1L12")" stroke="@DeskStroke("ET1L12")" class="desk-rect"/>
+                  <text x="494" y="66" class="desk-label">ET1L11</text>
+                  <text x="494" y="102" class="desk-label">ET1L12</text>
+
+                  <!-- DESKS ROW 2 -->
+                  <rect x="360" y="120" width="92" height="36" fill="@DeskFill("ET1L13")" stroke="@DeskStroke("ET1L13")" class="desk-rect"/>
+                  <rect x="360" y="156" width="92" height="36" fill="@DeskFill("ET1L14")" stroke="@DeskStroke("ET1L14")" class="desk-rect"/>
+                  <text x="406" y="138" class="desk-label">ET1L13</text>
+                  <text x="406" y="174" class="desk-label">ET1L14</text>
+
+                  <rect x="452" y="120" width="84" height="36" fill="@DeskFill("ET1L15")" stroke="@DeskStroke("ET1L15")" class="desk-rect"/>
+                  <rect x="452" y="156" width="84" height="36" fill="@DeskFill("ET1L16")" stroke="@DeskStroke("ET1L16")" class="desk-rect"/>
+                  <text x="494" y="138" class="desk-label">ET1L15</text>
+                  <text x="494" y="174" class="desk-label">ET1L16</text>
+
+                  <!-- LEFT COLUMN (w=200) -->
+                  <rect x="0" y="120" width="200" height="72" fill="#C5E0B4" class="cell"/>
+                  <text x="100" y="156" class="room-label" font-size="13">Bucatarie</text>
+
+                  <rect x="0" y="192" width="200" height="40" fill="#F2CEEF" class="cell"/>
+                  <text x="100" y="212" class="room-label" font-size="13">Toalete</text>
+
+                  <rect x="0" y="232" width="200" height="58" fill="#FDE5D5" class="cell"/>
+                  <text x="100" y="255" class="name-label">Cristian Dubalaru</text>
+                  <text x="100" y="269" class="name-label">Gabriel Vasile</text>
+
+                  <!-- Spatiu gol sub Dubalaru -->
+                  <rect x="0" y="290" width="200" height="60" fill="#fff" class="cell"/>
+
+                  <!-- HOL (vertical) -->
+                  <rect x="200" y="120" width="40" height="230" fill="#F5F5F5" class="cell"/>
+
+                  <!-- CORRIDOR (open space) -->
+                  <rect x="240" y="120" width="120" height="72" fill="#fff" class="cell"/>
+                  <rect x="240" y="192" width="296" height="40" fill="#fff" class="cell"/>
+
+                  <!-- Bogdan Savu -->
+                  <rect x="240" y="232" width="296" height="58" fill="#FDE5D5" class="cell"/>
+                  <text x="388" y="261" class="name-label">Bogdan Savu</text>
+
+                  <!-- Valentin Neacsu -->
+                  <rect x="240" y="290" width="296" height="60" fill="#FDE5D5" class="cell"/>
+                  <text x="388" y="320" class="name-label">Valentin Neacsu</text>
+
+                  <!-- OUTER WALL -->
+                  <rect x="0" y="0" width="660" height="350" fill="none" stroke="#555" stroke-width="1.5"/>
+
+                  <!-- INTRARE -->
+                  <rect x="200" y="352" width="40" height="35" fill="#D9D9D9" stroke="#888" stroke-width="0.75"/>
+                  <text x="220" y="370" class="room-label" font-size="9">Intrare</text>
+
+                  <!-- LEGEND -->
+                  <rect x="10" y="360" width="14" height="14" rx="2" fill="#d1e7dd" stroke="#198754" stroke-width="1.5"/>
+                  <text x="30" y="371" font-size="10" fill="#333">Liber</text>
+                  <rect x="65" y="360" width="14" height="14" rx="2" fill="#f8d7da" stroke="#dc3545" stroke-width="1.5"/>
+                  <text x="85" y="371" font-size="10" fill="#333">Ocupat</text>
+                </svg>
+            </div>
         </div>
-        <div class="col-lg-3 col-lg-offset-5 col-md-4 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-6 info-txt">
-            <b>Tu ești:</b> <span>@Model.FullName <br />(@Model.UserName)</span>
-        </div>
-        <div>
-            <a asp-page="/Add" class="btn btn-primary">Adaugă rezervare</a>
+
+        <div class="card">
+            <div class="card-body py-2 px-3">
+                <h6 class="card-title mb-2">
+                    <i class="bi bi-info-circle text-primary"></i> Informatii
+                </h6>
+                <ul class="list-unstyled small text-body-secondary mb-0">
+                    <li class="mb-1"><i class="bi bi-exclamation-triangle text-warning me-1"></i>Tabelul arata rezervarile in ordine cronologica si in ordinea locurilor, incepand cu @DateTime.Now.ToString("dd.MM.yyyy").</li>
+                    <li class="mb-1"><i class="bi bi-exclamation-triangle text-warning me-1"></i>Nu se poate rezerva acelasi loc de 2 ori in aceeasi zi.</li>
+                    <li class="mb-1"><i class="bi bi-exclamation-triangle text-warning me-1"></i>Nu se pot rezerva 2 locuri diferite de aceeasi persoana in aceeasi zi.</li>
+                    <li class="mb-1"><i class="bi bi-exclamation-triangle text-warning me-1"></i>Rezervarile mai vechi de data curenta se sterg automat.</li>
+                    <li><i class="bi bi-arrow-repeat text-info me-1"></i>Pagina se reincarca automat la fiecare minut.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <table>
-                <tr>
-                    <td style="vertical-align:top;">
-                        <div><img src="~/img/schema.png" /></div>
-                        <div class="info-label">
-                            <span class="label label-warning">!</span>ATENȚIE: Tabelul arată rezervarile în ordine cronologică si in ordinea locurilor ET1L01, ET1L02, ...), incepand cu data de azi @DateTime.Now.ToString("dd-MM-yyyy").<br />
-                            <span class="label label-warning">!</span>Nu se poate rezerva acelasi loc de 2 ori in aceeasi zi (verificati inainte de adaugare).<br />
-                            <span class="label label-warning">!</span>Nu se pot rezerva 2 locuri diferite, aceeasi persoana si in aceeasi zi (verificati inainte de adaugare).<br />
-                            <span class="label label-warning">!</span>Rezervarie mai vechi de data curenta se sterg automat.<br />
-                            <span class="label label-warning">!</span>Pagina se reîncarcă automat la fiecare minut.<br />
-                        </div>
-                    </td>
-                    <td style="vertical-align:top;">
-                        <div class="col-md-12">
-                            <h1>Lista rezervarilor (incepand cu data de azi @DateTime.Now.ToString("dd-MM-yyyy")):</h1>
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th><a asp-page="/Add">#</a></th>
-                                        <th>Data/Ora</th>
-                                        <th>Nume</th>
-                                        <th>Loc</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @for (int i = 0; i < Model.Rezervari.Count; i++)
-                                {
-                                    var r = Model.Rezervari[i];
-                                    var roculture = new System.Globalization.CultureInfo("ro-RO");
-                                    <tr>
-                                        <td>@(i + 1)</td>
-                                        <td>@r.Ora.ToString("dd.MM.yyyy HH:mm")&nbsp;(@roculture.DateTimeFormat.GetDayName(r.Ora.DayOfWeek))</td>
-                                        <td>@r.NumeComplet</td>
-                                        <td>@r.Destinatie</td>
-                                        <td class="btn-delete">
-                                            @if (r.IsOwner)
-                                            {
-                                                <button type="submit" asp-page-handler="Delete" asp-route-id="@r.OrarId"
-                                                        class="btn btn-danger"
-                                                        onclick="return confirm('Ești sigur(ă) că vrei să ștergi această programare?');">X</button>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
-                                </tbody>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <!-- Main column: Reservations table -->
+    <div class="col-lg-8 order-lg-1">
+        <div class="card">
+            <div class="card-header bg-body-tertiary d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div>
+                    <h5 class="mb-0">
+                        <i class="bi bi-calendar3 me-1"></i>
+                        Rezervari
+                        <span class="badge bg-primary rounded-pill ms-1">@Model.Rezervari.Count</span>
+                    </h5>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span id="refresh-countdown" class="badge bg-secondary">60s</span>
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <i class="bi bi-plus-lg"></i> Adauga rezervare
+                    </button>
+                </div>
+            </div>
+
+            @if (Model.Rezervari.Count == 0)
+            {
+                <div class="card-body text-center py-5 text-body-secondary">
+                    <i class="bi bi-calendar-x" style="font-size:3rem;"></i>
+                    <p class="mt-2 mb-0">Nu exista rezervari active.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Data / Ora</th>
+                                <th>Nume</th>
+                                <th>Loc</th>
+                                <th class="btn-delete-col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Rezervari.Count; i++)
+                            {
+                                var r = Model.Rezervari[i];
+                                <tr class="@(r.IsOwner ? "owner-row" : "")">
+                                    <td class="text-body-secondary">@(i + 1)</td>
+                                    <td>
+                                        @r.Ora.ToString("dd.MM.yyyy HH:mm")
+                                        <small class="text-body-secondary d-block d-md-inline ms-md-1">
+                                            @roculture.DateTimeFormat.GetDayName(r.Ora.DayOfWeek)
+                                        </small>
+                                    </td>
+                                    <td>@r.NumeComplet</td>
+                                    <td><span class="badge bg-primary">@r.Destinatie</span></td>
+                                    <td class="btn-delete-col">
+                                        @if (r.IsOwner)
+                                        {
+                                            <button type="button" class="btn btn-outline-danger btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                                    data-delete-id="@r.OrarId"
+                                                    data-delete-name="@r.Destinatie @r.Ora.ToString("dd.MM.yyyy")">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
-        <a asp-page="/Add" class="btn btn-primary">Adaugă rezervare</a>
     </div>
-</form>
+</div>
+
+<!-- Add Reservation Modal -->
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-plus-circle me-1"></i> Planificare noua</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="post" asp-page-handler="Add">
+                <div class="modal-body form-section">
+                    <!-- Date, Time, Repeat -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-4">
+                            <label class="form-label">Data</label>
+                            <input type="date" name="Data" value="@Model.Data.ToString("yyyy-MM-dd")" class="form-control" />
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <label class="form-label">Ora</label>
+                            <input type="number" name="Hour" value="@Model.Hour" class="form-control" min="0" max="23" />
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <label class="form-label">Minut</label>
+                            <input type="number" name="Minute" value="@Model.Minute" class="form-control" min="0" max="59" />
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <label class="form-label">Repetari</label>
+                            <div class="input-group">
+                                <input type="number" name="Repeat" value="1" class="form-control" min="1" max="5" />
+                                <span class="input-group-text">zile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desk selector grid -->
+                    <div class="mb-3">
+                        <label class="form-label">Selecteaza locul</label>
+                        <div class="desk-grid row row-cols-2 row-cols-sm-4 g-2">
+                            @for (int d = 1; d <= 16; d++)
+                            {
+                                var code = $"ET1L{d:D2}";
+                                var isChecked = Model.LastDestinatie == code;
+                                <div class="col">
+                                    <input type="radio" class="btn-check" name="Destinatie" id="add-desk-@d" value="@code"
+                                           @(isChecked ? "checked" : "") autocomplete="off" />
+                                    <label class="btn btn-outline-primary w-100 py-2" for="add-desk-@d">
+                                        <i class="bi bi-pc-display d-block mb-1"></i>
+                                        <small>@code</small>
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="alert alert-info small mb-0">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Max 5 repetari in zile consecutive. Data/ora in trecut se corecteaza automat.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuleaza</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-lg"></i> Adauga
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h6 class="modal-title"><i class="bi bi-exclamation-triangle text-danger me-1"></i> Confirmare stergere</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Esti sigur(a) ca vrei sa stergi rezervarea <strong id="deleteLabel"></strong>?
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Anuleaza</button>
+                <form method="post" id="deleteForm">
+                    <input type="hidden" name="id" id="deleteId" />
+                    <button type="submit" asp-page-handler="Delete" class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i> Sterge
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "scheduler",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": ["run"],
+      "port": 57153
+    }
+  ]
+}

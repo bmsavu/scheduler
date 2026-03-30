@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 390" font-family="Segoe UI, Calibri, Arial, sans-serif">
+  <defs>
+    <style>
+      .cell { stroke: #888; stroke-width: 0.75; }
+      .room-label { font-size: 15px; font-weight: 600; fill: #444; text-anchor: middle; dominant-baseline: central; }
+      .desk-label { font-size: 11px; font-weight: 600; fill: #333; text-anchor: middle; dominant-baseline: central; }
+      .name-label { font-size: 9.5px; fill: #444; text-anchor: middle; dominant-baseline: central; }
+      .desk-rect { stroke: #888; stroke-width: 1.5; cursor: pointer; transition: opacity .2s; }
+      .desk-rect:hover { opacity: 0.75; }
+    </style>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect x="0" y="0" width="660" height="350" fill="#fff"/>
+
+  <!-- TERASA TOP -->
+  <rect x="0" y="0" width="536" height="48" fill="#FCDEC0" class="cell"/>
+  <text x="268" y="24" class="room-label">Terasa</text>
+
+  <!-- HR -->
+  <rect x="536" y="0" width="124" height="120" fill="#F4C5A0" class="cell"/>
+  <text x="598" y="60" class="room-label">HR</text>
+
+  <!-- PMO -->
+  <rect x="536" y="120" width="124" height="72" fill="#F4C5A0" class="cell"/>
+  <text x="598" y="156" class="room-label">PMO</text>
+
+  <!-- TERASA BLUE -->
+  <rect x="536" y="192" width="124" height="158" fill="#B4C7E7" class="cell"/>
+  <text x="598" y="271" class="room-label">Terasa</text>
+
+  <!-- DESKS ROW 1: ET1L01-ET1L12 -->
+
+  <rect x="0"   y="48" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L01"/>
+  <rect x="0"   y="84" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L02"/>
+  <text x="46"  y="66" class="desk-label">ET1L01</text>
+  <text x="46"  y="102" class="desk-label">ET1L02</text>
+
+  <rect x="92"  y="48" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L03"/>
+  <rect x="92"  y="84" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L04"/>
+  <text x="138" y="66" class="desk-label">ET1L03</text>
+  <text x="138" y="102" class="desk-label">ET1L04</text>
+
+  <rect x="184" y="48" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L05"/>
+  <rect x="184" y="84" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L06"/>
+  <text x="226" y="66" class="desk-label">ET1L05</text>
+  <text x="226" y="102" class="desk-label">ET1L06</text>
+
+  <rect x="268" y="48" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L07"/>
+  <rect x="268" y="84" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L08"/>
+  <text x="314" y="66" class="desk-label">ET1L07</text>
+  <text x="314" y="102" class="desk-label">ET1L08</text>
+
+  <rect x="360" y="48" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L09"/>
+  <rect x="360" y="84" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L10"/>
+  <text x="406" y="66" class="desk-label">ET1L09</text>
+  <text x="406" y="102" class="desk-label">ET1L10</text>
+
+  <rect x="452" y="48" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L11"/>
+  <rect x="452" y="84" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L12"/>
+  <text x="494" y="66" class="desk-label">ET1L11</text>
+  <text x="494" y="102" class="desk-label">ET1L12</text>
+
+  <!-- DESKS ROW 2: ET1L13/14 aliniat cu 09/10, ET1L15/16 aliniat cu 11/12 -->
+
+  <rect x="360" y="120" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L13"/>
+  <rect x="360" y="156" width="92" height="36" fill="#fff" class="desk-rect" data-desk="ET1L14"/>
+  <text x="406" y="138" class="desk-label">ET1L13</text>
+  <text x="406" y="174" class="desk-label">ET1L14</text>
+
+  <rect x="452" y="120" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L15"/>
+  <rect x="452" y="156" width="84" height="36" fill="#fff" class="desk-rect" data-desk="ET1L16"/>
+  <text x="494" y="138" class="desk-label">ET1L15</text>
+  <text x="494" y="174" class="desk-label">ET1L16</text>
+
+  <!-- LEFT COLUMN: Bucatarie, Toalete, Dubalaru (stivuite vertical, w=200) -->
+
+  <rect x="0" y="120" width="200" height="72" fill="#C5E0B4" class="cell"/>
+  <text x="100" y="156" class="room-label" font-size="13">Bucatarie</text>
+
+  <rect x="0" y="192" width="200" height="40" fill="#F2CEEF" class="cell"/>
+  <text x="100" y="212" class="room-label" font-size="13">Toalete</text>
+
+  <rect x="0" y="232" width="200" height="58" fill="#FDE5D5" class="cell"/>
+  <text x="100" y="255" class="name-label">Cristian Dubalaru</text>
+  <text x="100" y="269" class="name-label">Gabriel Vasile</text>
+
+  <!-- Spatiu gol sub Dubalaru -->
+  <rect x="0" y="290" width="200" height="60" fill="#fff" class="cell"/>
+
+  <!-- HOL (vertical, prin fata celor 3 camere) -->
+  <rect x="200" y="120" width="40" height="230" fill="#F5F5F5" class="cell"/>
+
+  <!-- CORRIDOR (open space) -->
+  <rect x="240" y="120" width="120" height="72" fill="#fff" class="cell"/>
+  <rect x="240" y="192" width="296" height="40" fill="#fff" class="cell"/>
+
+  <!-- Bogdan Savu (lipit de Terasa blue) -->
+  <rect x="240" y="232" width="296" height="58" fill="#FDE5D5" class="cell"/>
+  <text x="388" y="261" class="name-label">Bogdan Savu</text>
+
+  <!-- Valentin Neacsu (lipit de Terasa blue) -->
+  <rect x="240" y="290" width="296" height="60" fill="#FDE5D5" class="cell"/>
+  <text x="388" y="320" class="name-label">Valentin Neacsu</text>
+
+  <!-- OUTER WALL -->
+  <rect x="0" y="0" width="660" height="350" fill="none" stroke="#555" stroke-width="1.5"/>
+
+  <!-- INTRARE (in afara cladirii, doar in dreptul holului) -->
+  <rect x="200" y="352" width="40" height="35" fill="#D9D9D9" stroke="#888" stroke-width="0.75"/>
+  <text x="220" y="370" class="room-label" font-size="9">Intrare</text>
+
+  <!-- LEGEND -->
+  <rect x="10" y="360" width="14" height="14" rx="2" fill="#d1e7dd" stroke="#198754" stroke-width="1.5"/>
+  <text x="30" y="371" font-size="10" fill="#333">Liber</text>
+  <rect x="65" y="360" width="14" height="14" rx="2" fill="#f8d7da" stroke="#dc3545" stroke-width="1.5"/>
+  <text x="85" y="371" font-size="10" fill="#333">Ocupat</text>
+</svg>

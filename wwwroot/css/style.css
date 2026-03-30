@@ -1,77 +1,132 @@
-html,
-body,
-.container-fluid {
-height: 100%;
+/* ===== Scheduler Theme ===== */
+:root {
+    --sch-bg: #f0f2f5;
+    --sch-accent: #0d6efd;
+    --sch-surface: #ffffff;
 }
 
-.content {
-	background-color: #ADD8E6;
+[data-bs-theme="dark"] {
+    --sch-bg: #1a1d21;
+    --sch-surface: #212529;
 }
 
-h1 {
-	font-size: 20px;
-    color: #333;
-    font-weight: bold;
-    margin-top: 5px;
+body {
+    background-color: var(--sch-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.txt-identitate {
-margin-left: 30px;
- font-size: 20px;
- color: red;
- font-weight: bold;
+main {
+    flex: 1;
 }
 
-.table {
-	background-color: #fff;
+/* ===== Cards ===== */
+.card {
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
 }
 
-.table>tbody>tr>td.btn-delete {
-	padding: 4px;
+/* ===== Table tweaks ===== */
+.table th {
+    font-weight: 600;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    white-space: nowrap;
 }
 
-.btn-delete .btn {
-	padding: 4px 10px;
+.table td {
+    vertical-align: middle;
 }
 
-.info {
-	font-size: 16px;
-	margin-bottom: 20px;
-	padding-top: 15px;
-    padding-bottom: 15px;
-	background-color: #FFF;
-    border-bottom: 1px solid #F1F1F1;
-	-webkit-box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
-    -moz-box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
-    box-shadow: 1px 0 1px 0 rgba(170,170,170,0.25);
+tr.owner-row {
+    border-left: 3px solid var(--sch-accent) !important;
 }
 
-.info-txt span {
-	color: #ADD8E6;
-	font-weight: bold;
-	margin-bottom: 50px;
+/* ===== Desk selector grid ===== */
+.desk-grid .btn-check:checked + .btn {
+    box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .35);
 }
 
-.info-txt {
-	margin-top: 10px;
+.desk-grid .btn {
+    transition: all .15s ease-in-out;
 }
 
-.form-ora .form-control {
-	margin-top: 20px;
-	display: inline-block;
+.desk-grid .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .12);
 }
 
-.info-label {
-	font-size: 12px;
-    font-weight: bold;
-	margin-bottom: 10px;
+.desk-grid .btn-check:disabled + .btn {
+    opacity: .65;
+    pointer-events: none;
 }
 
-.info-label {
-	margin-top:30px;
+.desk-occupant {
+    font-size: .65rem;
+    line-height: 1.1;
+    margin-top: 2px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.info-label  .label {
-	margin-right: 5px;
+/* ===== Refresh countdown badge ===== */
+#refresh-countdown {
+    font-variant-numeric: tabular-nums;
+    min-width: 2.5rem;
+    text-align: center;
 }
 
+/* ===== Floor plan image ===== */
+.floor-plan img {
+    border-radius: .5rem;
+    border: 1px solid rgba(0, 0, 0, .08);
+}
+
+/* ===== Navbar ===== */
+.navbar-brand img {
+    transition: opacity .2s;
+}
+
+.navbar-brand img:hover {
+    opacity: .85;
+}
+
+/* ===== Toast container ===== */
+.toast-container {
+    z-index: 1090;
+}
+
+/* ===== Form page ===== */
+.form-section label {
+    font-weight: 500;
+    font-size: .875rem;
+    margin-bottom: .25rem;
+}
+
+/* ===== Footer ===== */
+footer {
+    border-top: 1px solid rgba(0, 0, 0, .05);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 767.98px) {
+    .card-body .table {
+        font-size: .85rem;
+    }
+
+    .desk-grid .btn {
+        padding: .5rem !important;
+        font-size: .8rem;
+    }
+}
+
+/* ===== Print ===== */
+@media print {
+    .navbar, footer, #toastContainer, .btn-delete-col {
+        display: none !important;
+    }
+}

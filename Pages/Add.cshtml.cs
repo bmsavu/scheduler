@@ -14,7 +14,6 @@ public class AddModel : PageModel
     public string FullName { get; set; } = "";
     public string ShortName { get; set; } = "";
 
-    [BindProperty]
     public string Rol { get; set; } = "Rezervare";
 
     [BindProperty]
@@ -41,6 +40,7 @@ public class AddModel : PageModel
     {
         Thread.CurrentThread.CurrentCulture = new CultureInfo("ro-RO");
         LoadUserInfo();
+        SetViewData();
         LoadLastDestination();
     }
 
@@ -83,7 +83,14 @@ public class AddModel : PageModel
             dtOra = dtOra.AddDays(1);
         }
 
+        TempData["SuccessMessage"] = "Rezervarea a fost adaugata cu succes.";
         return RedirectToPage("/Index");
+    }
+
+    private void SetViewData()
+    {
+        ViewData["FullName"] = FullName;
+        ViewData["UserName"] = UserName;
     }
 
     private void LoadUserInfo()
