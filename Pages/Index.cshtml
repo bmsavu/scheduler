@@ -19,7 +19,7 @@
                     <style>
                       .cell { stroke: #888; stroke-width: 0.75; }
                       .room-label { font-size: 15px; font-weight: 600; fill: #444; text-anchor: middle; dominant-baseline: central; }
-                      .desk-label { font-size: 11px; font-weight: 600; fill: #333; text-anchor: middle; dominant-baseline: central; }
+                      .desk-label { font-size: 11px; font-weight: 600; fill: #333; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
                       .name-label { font-size: 9.5px; fill: #444; text-anchor: middle; dominant-baseline: central; }
                       .desk-rect { stroke-width: 1.5; cursor: pointer; transition: opacity .2s; }
                       .desk-rect:hover { opacity: 0.75; }
@@ -46,44 +46,44 @@
                   <text x="598" y="271" class="room-label">Terasa</text>
 
                   <!-- DESKS ROW 1 -->
-                  <rect x="0"   y="48" width="92" height="36" fill="@DeskFill("ET1L01")" stroke="@DeskStroke("ET1L01")" class="desk-rect"/>
-                  <rect x="0"   y="84" width="92" height="36" fill="@DeskFill("ET1L02")" stroke="@DeskStroke("ET1L02")" class="desk-rect"/>
+                  <rect x="0"   y="48" width="92" height="36" fill="@DeskFill("ET1L01")" stroke="@DeskStroke("ET1L01")" class="desk-rect" data-desk="ET1L01"/>
+                  <rect x="0"   y="84" width="92" height="36" fill="@DeskFill("ET1L02")" stroke="@DeskStroke("ET1L02")" class="desk-rect" data-desk="ET1L02"/>
                   <text x="46"  y="66" class="desk-label">ET1L01</text>
                   <text x="46"  y="102" class="desk-label">ET1L02</text>
 
-                  <rect x="92"  y="48" width="92" height="36" fill="@DeskFill("ET1L03")" stroke="@DeskStroke("ET1L03")" class="desk-rect"/>
-                  <rect x="92"  y="84" width="92" height="36" fill="@DeskFill("ET1L04")" stroke="@DeskStroke("ET1L04")" class="desk-rect"/>
+                  <rect x="92"  y="48" width="92" height="36" fill="@DeskFill("ET1L03")" stroke="@DeskStroke("ET1L03")" class="desk-rect" data-desk="ET1L03"/>
+                  <rect x="92"  y="84" width="92" height="36" fill="@DeskFill("ET1L04")" stroke="@DeskStroke("ET1L04")" class="desk-rect" data-desk="ET1L04"/>
                   <text x="138" y="66" class="desk-label">ET1L03</text>
                   <text x="138" y="102" class="desk-label">ET1L04</text>
 
-                  <rect x="184" y="48" width="84" height="36" fill="@DeskFill("ET1L05")" stroke="@DeskStroke("ET1L05")" class="desk-rect"/>
-                  <rect x="184" y="84" width="84" height="36" fill="@DeskFill("ET1L06")" stroke="@DeskStroke("ET1L06")" class="desk-rect"/>
+                  <rect x="184" y="48" width="84" height="36" fill="@DeskFill("ET1L05")" stroke="@DeskStroke("ET1L05")" class="desk-rect" data-desk="ET1L05"/>
+                  <rect x="184" y="84" width="84" height="36" fill="@DeskFill("ET1L06")" stroke="@DeskStroke("ET1L06")" class="desk-rect" data-desk="ET1L06"/>
                   <text x="226" y="66" class="desk-label">ET1L05</text>
                   <text x="226" y="102" class="desk-label">ET1L06</text>
 
-                  <rect x="268" y="48" width="92" height="36" fill="@DeskFill("ET1L07")" stroke="@DeskStroke("ET1L07")" class="desk-rect"/>
-                  <rect x="268" y="84" width="92" height="36" fill="@DeskFill("ET1L08")" stroke="@DeskStroke("ET1L08")" class="desk-rect"/>
+                  <rect x="268" y="48" width="92" height="36" fill="@DeskFill("ET1L07")" stroke="@DeskStroke("ET1L07")" class="desk-rect" data-desk="ET1L07"/>
+                  <rect x="268" y="84" width="92" height="36" fill="@DeskFill("ET1L08")" stroke="@DeskStroke("ET1L08")" class="desk-rect" data-desk="ET1L08"/>
                   <text x="314" y="66" class="desk-label">ET1L07</text>
                   <text x="314" y="102" class="desk-label">ET1L08</text>
 
-                  <rect x="360" y="48" width="92" height="36" fill="@DeskFill("ET1L09")" stroke="@DeskStroke("ET1L09")" class="desk-rect"/>
-                  <rect x="360" y="84" width="92" height="36" fill="@DeskFill("ET1L10")" stroke="@DeskStroke("ET1L10")" class="desk-rect"/>
+                  <rect x="360" y="48" width="92" height="36" fill="@DeskFill("ET1L09")" stroke="@DeskStroke("ET1L09")" class="desk-rect" data-desk="ET1L09"/>
+                  <rect x="360" y="84" width="92" height="36" fill="@DeskFill("ET1L10")" stroke="@DeskStroke("ET1L10")" class="desk-rect" data-desk="ET1L10"/>
                   <text x="406" y="66" class="desk-label">ET1L09</text>
                   <text x="406" y="102" class="desk-label">ET1L10</text>
 
-                  <rect x="452" y="48" width="84" height="36" fill="@DeskFill("ET1L11")" stroke="@DeskStroke("ET1L11")" class="desk-rect"/>
-                  <rect x="452" y="84" width="84" height="36" fill="@DeskFill("ET1L12")" stroke="@DeskStroke("ET1L12")" class="desk-rect"/>
+                  <rect x="452" y="48" width="84" height="36" fill="@DeskFill("ET1L11")" stroke="@DeskStroke("ET1L11")" class="desk-rect" data-desk="ET1L11"/>
+                  <rect x="452" y="84" width="84" height="36" fill="@DeskFill("ET1L12")" stroke="@DeskStroke("ET1L12")" class="desk-rect" data-desk="ET1L12"/>
                   <text x="494" y="66" class="desk-label">ET1L11</text>
                   <text x="494" y="102" class="desk-label">ET1L12</text>
 
                   <!-- DESKS ROW 2 -->
-                  <rect x="360" y="120" width="92" height="36" fill="@DeskFill("ET1L13")" stroke="@DeskStroke("ET1L13")" class="desk-rect"/>
-                  <rect x="360" y="156" width="92" height="36" fill="@DeskFill("ET1L14")" stroke="@DeskStroke("ET1L14")" class="desk-rect"/>
+                  <rect x="360" y="120" width="92" height="36" fill="@DeskFill("ET1L13")" stroke="@DeskStroke("ET1L13")" class="desk-rect" data-desk="ET1L13"/>
+                  <rect x="360" y="156" width="92" height="36" fill="@DeskFill("ET1L14")" stroke="@DeskStroke("ET1L14")" class="desk-rect" data-desk="ET1L14"/>
                   <text x="406" y="138" class="desk-label">ET1L13</text>
                   <text x="406" y="174" class="desk-label">ET1L14</text>
 
-                  <rect x="452" y="120" width="84" height="36" fill="@DeskFill("ET1L15")" stroke="@DeskStroke("ET1L15")" class="desk-rect"/>
-                  <rect x="452" y="156" width="84" height="36" fill="@DeskFill("ET1L16")" stroke="@DeskStroke("ET1L16")" class="desk-rect"/>
+                  <rect x="452" y="120" width="84" height="36" fill="@DeskFill("ET1L15")" stroke="@DeskStroke("ET1L15")" class="desk-rect" data-desk="ET1L15"/>
+                  <rect x="452" y="156" width="84" height="36" fill="@DeskFill("ET1L16")" stroke="@DeskStroke("ET1L16")" class="desk-rect" data-desk="ET1L16"/>
                   <text x="494" y="138" class="desk-label">ET1L15</text>
                   <text x="494" y="174" class="desk-label">ET1L16</text>
 
@@ -123,12 +123,11 @@
                   <rect x="200" y="352" width="40" height="35" fill="#D9D9D9" stroke="#888" stroke-width="0.75"/>
                   <text x="220" y="370" class="room-label" font-size="9">Intrare</text>
 
-                  <!-- LEGEND -->
-                  <rect x="10" y="360" width="14" height="14" rx="2" fill="#d1e7dd" stroke="#198754" stroke-width="1.5"/>
-                  <text x="30" y="371" font-size="10" fill="#333">Liber</text>
-                  <rect x="65" y="360" width="14" height="14" rx="2" fill="#f8d7da" stroke="#dc3545" stroke-width="1.5"/>
-                  <text x="85" y="371" font-size="10" fill="#333">Ocupat</text>
                 </svg>
+                <div class="d-flex gap-3 mt-2 px-1 small text-body-secondary">
+                    <span><span class="d-inline-block rounded-1 me-1" style="width:12px;height:12px;background:#d1e7dd;border:1.5px solid #198754;"></span>Liber (click = rezerva)</span>
+                    <span><span class="d-inline-block rounded-1 me-1" style="width:12px;height:12px;background:#f8d7da;border:1.5px solid #dc3545;"></span>Ocupat</span>
+                </div>
             </div>
         </div>
 

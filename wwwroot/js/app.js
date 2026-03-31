@@ -16,8 +16,8 @@ const countdownEl = document.getElementById('refresh-countdown');
 if (countdownEl) {
     let seconds = 60;
     const tick = () => {
-        // Pause if modal is open
-        if (deleteModal && deleteModal.classList.contains('show')) return;
+        // Pause if any modal is open
+        if (document.querySelector('.modal.show')) return;
         seconds--;
         countdownEl.textContent = seconds + 's';
         if (seconds <= 0) location.reload();
@@ -90,6 +90,22 @@ if (addModal) {
 
     dateInput.addEventListener('change', updateDesks);
     addModal.addEventListener('shown.bs.modal', updateDesks);
+}
+
+// ===== SVG Floor Plan: Click free desk → open modal =====
+const floorSvg = document.querySelector('.floor-plan svg');
+if (floorSvg && addModal) {
+    floorSvg.addEventListener('click', function (e) {
+        const rect = e.target.closest('[data-desk]');
+        if (!rect) return;
+        // Only free desks (green stroke)
+        if (rect.getAttribute('stroke') === '#dc3545') return;
+        const code = rect.getAttribute('data-desk');
+        const num = parseInt(code.replace('ET1L', ''), 10);
+        const radio = document.getElementById('add-desk-' + num);
+        if (radio) radio.checked = true;
+        new bootstrap.Modal(addModal).show();
+    });
 }
 
 // ===== Toast Notifications =====
